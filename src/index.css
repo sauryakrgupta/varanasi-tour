@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 97%;
+    --foreground: 25 40% 12%;
+
+    --card: 35 25% 95%;
+    --card-foreground: 25 40% 12%;
+
+    --popover: 35 30% 97%;
+    --popover-foreground: 25 40% 12%;
+
+    --primary: 30 85% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 35 25% 90%;
+    --secondary-foreground: 25 40% 12%;
+
+    --muted: 35 20% 92%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 43 80% 50%;
+    --accent-foreground: 25 40% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 20% 88%;
+    --input: 35 20% 88%;
+    --ring: 30 85% 52%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 80% 50%;
+    --saffron: 30 85% 52%;
+    --deep-brown: 25 40% 12%;
+    --warm-beige: 35 30% 95%;
+    --cream: 40 40% 97%;
+
+    --sidebar-background: 35 25% 95%;
+    --sidebar-foreground: 25 40% 12%;
+    --sidebar-primary: 30 85% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 35 25% 90%;
+    --sidebar-accent-foreground: 25 40% 12%;
+    --sidebar-border: 35 20% 88%;
+    --sidebar-ring: 30 85% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-background/70 backdrop-blur-xl border border-border/50;
+  }
+
+  .glass-dark {
+    background: hsla(25, 40%, 12%, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(35, 20%, 88%, 0.1);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(var(--saffron)), hsl(var(--gold)), hsl(var(--saffron)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-warm {
+    box-shadow: 0 10px 40px -10px hsla(30, 85%, 52%, 0.15),
+                0 4px 12px -4px hsla(25, 40%, 12%, 0.08);
+  }
+
+  .shadow-warm-lg {
+    box-shadow: 0 20px 60px -15px hsla(30, 85%, 52%, 0.2),
+                0 8px 24px -8px hsla(25, 40%, 12%, 0.1);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -15px hsla(30, 85%, 52%, 0.25);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
