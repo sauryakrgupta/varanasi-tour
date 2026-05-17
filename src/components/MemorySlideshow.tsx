@@ -17,6 +17,22 @@ import t12 from "@/assets/T-12.jpg";
 import t13 from "@/assets/T-13.jpg";
 import t14 from "@/assets/T-14.jpg";
 
+import h2 from "@/assets/H-2.jpeg";
+import h3 from "@/assets/H-3.jpg";
+import h4 from "@/assets/H-4.jpg";
+import h5 from "@/assets/H-5.jpg";
+import h6 from "@/assets/H-6.jpeg";
+import h7 from "@/assets/H-7.jpeg";
+import h8 from "@/assets/H-8.jpeg";
+import h9 from "@/assets/H-9.jpg";
+import h10 from "@/assets/H-10.jpg";
+import h11 from "@/assets/H-11.jpeg";
+import h12 from "@/assets/H-12.jpeg";
+import h13 from "@/assets/H-13.jpg";
+import h14 from "@/assets/H-14.jpg";
+import h15 from "@/assets/H-15.jpg";
+import h16 from "@/assets/H-16.jpg";
+
 const memories = [
   { src: t3, caption: "Moments with Travelers 1" },
   { src: t4, caption: "Moments with Travelers 2" },
@@ -32,6 +48,21 @@ const memories = [
   { src: t14, caption: "Moments with Travelers 12" },
   { src: t1, caption: "Moments with Travelers 13" },
   { src: t2, caption: "Moments with Travelers 14" },
+  { src: h2, caption: "Varanasi Memories 1" },
+  { src: h3, caption: "Varanasi Memories 2" },
+  { src: h4, caption: "Varanasi Memories 3" },
+  { src: h5, caption: "Varanasi Memories 4" },
+  { src: h6, caption: "Varanasi Memories 5" },
+  { src: h7, caption: "Varanasi Memories 6" },
+  { src: h8, caption: "Varanasi Memories 7" },
+  { src: h9, caption: "Varanasi Memories 8" },
+  { src: h10, caption: "Varanasi Memories 9" },
+  { src: h11, caption: "Varanasi Memories 10" },
+  { src: h12, caption: "Varanasi Memories 11" },
+  { src: h13, caption: "Varanasi Memories 12" },
+  { src: h14, caption: "Varanasi Memories 13" },
+  { src: h15, caption: "Varanasi Memories 14" },
+  { src: h16, caption: "Varanasi Memories 15" },
 ];
 
 const MemorySlideshow = () => {

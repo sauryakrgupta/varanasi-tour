@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Clock, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import ghatsImg from "@/assets/varanasi-ghats-sunrise.jpg";
@@ -7,46 +7,71 @@ import aartiImg from "@/assets/ganga-aarti.jpg";
 import oldCityImg from "@/assets/old-city.jpg";
 import templeImg from "@/assets/temple.jpg";
 import boatImg from "@/assets/boat-ride.jpg";
+import kashiImg from "@/assets/kashi_vishwanath_temple.jpg";
+import sarnathImg from "@/assets/sarnath.jpg";
+import prayagrajImg from "@/assets/prayagraj.jpg";
+import ayodhyaImg from "@/assets/ayodhya.jpg";
+import bodhgayaImg from "@/assets/bodhgaya.jpeg";
 
 const tours = [
   {
     title: "Sunrise Boat Tour",
     emoji: "🌅",
     description: "Witness the magical sunrise over the ghats from a traditional wooden boat on the Ganges.",
-    duration: "2-3 hours",
-    price: "From ₹1,500",
     image: ghatsImg,
   },
   {
     title: "Evening Ganga Aarti",
     emoji: "🪔",
     description: "Experience the mesmerizing fire ceremony at Dashashwamedh Ghat — a spiritual spectacle.",
-    duration: "2 hours",
-    price: "From ₹1,200",
     image: aartiImg,
   },
   {
     title: "Old City Walking Tour",
     emoji: "🚶",
     description: "Navigate the vibrant alleys, discover hidden temples, taste local street food, and meet artisans.",
-    duration: "3-4 hours",
-    price: "From ₹1,800",
     image: oldCityImg,
   },
   {
     title: "Spiritual & Temple Tour",
     emoji: "🛕",
     description: "Visit the most sacred temples including Kashi Vishwanath and learn their ancient stories.",
-    duration: "4-5 hours",
-    price: "From ₹2,000",
     image: templeImg,
+  },
+  {
+    title: "Kashi Vishwanath Temple",
+    emoji: "🕌",
+    description: "A dedicated visit to the holiest Jyotirlinga shrine — Kashi Vishwanath — the heart of Varanasi's spiritual identity.",
+    image: kashiImg,
+  },
+  {
+    title: "Sarnath Tour",
+    emoji: "☸️",
+    description: "Explore Sarnath, the sacred Buddhist site where Lord Buddha gave his first sermon after attaining enlightenment.",
+    image: sarnathImg,
+  },
+  {
+    title: "Prayagraj Tour",
+    emoji: "🌊",
+    description: "Visit the Triveni Sangam — the holy confluence of the Ganga, Yamuna and Saraswati rivers — in the city of Prayagraj.",
+    image: prayagrajImg,
+  },
+  {
+    title: "Ayodhya Tour",
+    emoji: "🏛️",
+    description: "Journey to Ayodhya, the birthplace of Lord Ram, and witness the grand Ram Mandir and sacred ghats of the Saryu river.",
+    image: ayodhyaImg,
+  },
+  {
+    title: "Bodhgaya Tour",
+    emoji: "🌳",
+    description: "Travel to Bodhgaya, where Lord Buddha attained enlightenment under the Bodhi Tree, and visit the majestic Mahabodhi Temple.",
+    image: bodhgayaImg,
   },
   {
     title: "Customized Private Tour",
     emoji: "✨",
     description: "A fully personalized experience tailored to your interests, pace, and curiosities.",
-    duration: "Flexible",
-    price: "Custom pricing",
     image: boatImg,
   },
 ];
@@ -86,10 +111,6 @@ const ToursSection = () => {
                   alt={tour.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium flex items-center gap-1">
-                  <Clock size={14} className="text-primary" />
-                  {tour.duration}
-                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">
@@ -98,8 +119,7 @@ const ToursSection = () => {
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {tour.description}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-bold">{tour.price}</span>
+                <div className="flex items-center justify-end">
                   <Link
                     to="/booking"
                     className="flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"

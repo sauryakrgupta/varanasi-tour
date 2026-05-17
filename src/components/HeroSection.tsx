@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative -mt-48 z-10 pb-16 md:pb-24">
+    <section className="relative pb-16 md:pb-24 pt-16">
       <div className="container mx-auto px-4 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

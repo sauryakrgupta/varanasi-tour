@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import aartiImg from "@/assets/ganga-aarti.jpg";
 import h2 from "@/assets/H-2.jpeg";
 import h3 from "@/assets/H-3.jpg";
 import h4 from "@/assets/H-4.jpg";
@@ -18,6 +19,7 @@ import h15 from "@/assets/H-15.jpg";
 import h16 from "@/assets/H-16.jpg";
 
 const slides = [
+  { src: aartiImg, alt: "Ganga Aarti Varanasi" },
   { src: h2, alt: "Varanasi Visuals 2" },
   { src: h3, alt: "Varanasi Visuals 3" },
   { src: h4, alt: "Varanasi Visuals 4" },
