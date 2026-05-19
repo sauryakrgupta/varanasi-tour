@@ -12,6 +12,7 @@ import sarnathImg from "@/assets/sarnath.jpg";
 import prayagrajImg from "@/assets/prayagraj.jpg";
 import ayodhyaImg from "@/assets/ayodhya.jpg";
 import bodhgayaImg from "@/assets/bodhgaya.jpeg";
+import goldenImg from "@/assets/golden.webp";
 
 const tours = [
   {
@@ -67,6 +68,12 @@ const tours = [
     emoji: "🌳",
     description: "Travel to Bodhgaya, where Lord Buddha attained enlightenment under the Bodhi Tree, and visit the majestic Mahabodhi Temple.",
     image: bodhgayaImg,
+  },
+  {
+    title: "Golden Triangle Tour",
+    emoji: "🔺",
+    description: "Discover India's iconic Golden Triangle — the grandeur of Delhi, the timeless Taj Mahal in Agra, and the pink-walled palaces of Jaipur.",
+    image: goldenImg,
   },
   {
     title: "Customized Private Tour",
