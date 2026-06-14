@@ -1,4 +1,33 @@
+import { useState } from "react";
+
 const BookingSection = () => {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/mqeowear", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="book" className="code-section py-20 lg:py-32 bg-gradient-to-br from-[#78350F] via-[#92400E] to-[#78350F] relative overflow-hidden">
       {/* Background Pattern */}
@@ -62,70 +91,112 @@ const BookingSection = () => {
           <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl">
             <h3 className="text-2xl font-bold text-[#1F2937] mb-6 font-[Outfit]">Plan My Trip</h3>
 
-            <form data-landingsite-contact-form="true" className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#1F2937] mb-2">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="John Smith" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#1F2937] mb-2">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="john@example.com" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-[#1F2937] mb-2">Phone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="date" className="block text-sm font-medium text-[#1F2937] mb-2">Preferred Date</label>
-                  <input type="date" id="date" name="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
+            {status === "success" ? (
+              <div className="text-center py-12">
+                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i className="fa-solid fa-circle-check text-green-500 text-4xl"></i>
                 </div>
+                <h4 className="text-xl font-bold text-[#1F2937] mb-2">Booking Request Sent!</h4>
+                <p className="text-[#6B7280] mb-6">
+                  Thank you! Your details have been sent to <strong>himanshu95513@gmail.com</strong>. We'll get back to you within 24 hours.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="px-6 py-3 bg-[#D97706] text-white font-semibold rounded-xl hover:bg-[#B45309] transition-all duration-300"
+                >
+                  Submit Another Request
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* hidden field to label the email */}
+                <input type="hidden" name="_subject" value="New Booking Request – Varanasi Spiritual Tour" />
+
                 <div>
-                  <label htmlFor="guests" className="block text-sm font-medium text-[#1F2937] mb-2">Number of Guests</label>
-                  <select id="guests" name="guests" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
-                    <option value="">Select</option>
-                    <option value="1">1 Person</option>
-                    <option value="2">2 People</option>
-                    <option value="3-5">3-5 People</option>
-                    <option value="6+">6+ People</option>
+                  <label htmlFor="name" className="block text-sm font-medium text-[#1F2937] mb-2">Your Name</label>
+                  <input type="text" id="name" name="name" required placeholder="John Smith" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-[#1F2937] mb-2">Email Address</label>
+                  <input type="email" id="email" name="email" required placeholder="john@example.com" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-[#1F2937] mb-2">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="date" className="block text-sm font-medium text-[#1F2937] mb-2">Preferred Date</label>
+                    <input type="date" id="date" name="date" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300" />
+                  </div>
+                  <div>
+                    <label htmlFor="guests" className="block text-sm font-medium text-[#1F2937] mb-2">Number of Guests</label>
+                    <select id="guests" name="guests" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
+                      <option value="">Select</option>
+                      <option value="1">1 Person</option>
+                      <option value="2">2 People</option>
+                      <option value="3-5">3-5 People</option>
+                      <option value="6+">6+ People</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="tour" className="block text-sm font-medium text-[#1F2937] mb-2">Select Tour</label>
+                  <select id="tour" name="tour" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
+                    <option value="">Choose an experience</option>
+                    <option value="sunrise-boat">Sunrise Boat Tour</option>
+                    <option value="ganga-aarti">Evening Ganga Aarti</option>
+                    <option value="old-city">Old City Walking Tour</option>
+                    <option value="temple">Spiritual Temple Tour</option>
+                    <option value="custom">Custom Private Tour</option>
                   </select>
                 </div>
-              </div>
 
-              <div>
-                <label htmlFor="tour" className="block text-sm font-medium text-[#1F2937] mb-2">Select Tour</label>
-                <select id="tour" name="tour" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
-                  <option value="">Choose an experience</option>
-                  <option value="sunrise-boat">Sunrise Boat Tour</option>
-                  <option value="ganga-aarti">Evening Ganga Aarti</option>
-                  <option value="old-city">Old City Walking Tour</option>
-                  <option value="temple">Spiritual Temple Tour</option>
-                  <option value="custom">Custom Private Tour</option>
-                </select>
-              </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-[#1F2937] mb-2">Special Requests</label>
+                  <textarea id="message" name="message" rows={3} placeholder="Tell us about your interests or any special requirements..." className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 resize-none"></textarea>
+                </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[#1F2937] mb-2">Special Requests</label>
-                <textarea id="message" name="message" rows={3} placeholder="Tell us about your interests or any special requirements..." className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 resize-none"></textarea>
-              </div>
+                {status === "error" && (
+                  <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+                    <i className="fa-solid fa-triangle-exclamation"></i>
+                    Something went wrong. Please try again or email us directly.
+                  </div>
+                )}
 
-              <button type="submit" className="w-full py-4 bg-[#D97706] hover:bg-[#B45309] text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-lg">
-                <i className="fa-solid fa-paper-plane"></i>
-                Plan My Trip
-              </button>
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full py-4 bg-[#D97706] hover:bg-[#B45309] disabled:opacity-60 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2 text-lg"
+                >
+                  {status === "submitting" ? (
+                    <>
+                      <i className="fa-solid fa-spinner fa-spin"></i>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <i className="fa-solid fa-paper-plane"></i>
+                      Plan My Trip
+                    </>
+                  )}
+                </button>
 
-              <p className="text-center text-sm text-[#6B7280]">
-                <i className="fa-solid fa-lock text-[#6B7280] mr-1"></i>
-                No payment required. We'll respond within 24 hours.
-              </p>
-            </form>
+                <p className="text-center text-sm text-[#6B7280]">
+                  <i className="fa-solid fa-lock text-[#6B7280] mr-1"></i>
+                  No payment required. We'll respond within 24 hours.
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default BookingSection;

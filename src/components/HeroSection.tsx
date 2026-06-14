@@ -13,14 +13,15 @@ const HeroSection = () => {
           <span className="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6 border border-primary/20">
             ⭐ Top Rated Guide in Varanasi
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            Explore Varanasi
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <span className="text-gradient-gold">Varanasi Spiritual Tour</span>
             <br />
-            <span className="text-gradient-gold">Like Never Before</span>
+            <span className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground">Sunrise Boat Ride | Ganga Arti &amp; Temple Tours...</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Personalized tours with a trusted local expert. Discover ancient ghats,
-            sacred temples, and hidden gems of the world's oldest living city.
+            Welcome to Varanasi Spiritual Tour, your trusted local guide service for authentic spiritual
+            experiences in Varanasi. Join sunrise boat rides, Ganga Aarti tours, temple visits,
+            and cultural walks led by experienced local guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
