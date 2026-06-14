@@ -32,8 +32,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="font-display text-xl font-bold tracking-wide">
-          <span className="text-gradient-gold">Explore</span>
-          <span className={useDarkText ? "text-foreground" : "text-primary-foreground"}>Kashi</span>
+          <span className="text-gradient-gold">Varanasi</span>
+          <span className={useDarkText ? "text-foreground" : "text-primary-foreground"}> Spiritual Tour</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
