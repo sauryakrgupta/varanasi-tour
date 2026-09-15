@@ -148,6 +148,7 @@ const BookingSection = () => {
                   <label htmlFor="tour" className="block text-sm font-medium text-[#1F2937] mb-2">Select Tour</label>
                   <select id="tour" name="tour" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
                     <option value="">Choose an experience</option>
+                    <option value="dev-diwali-boat">Dev Diwali Boat Booking | Ganga Aarti, Laser</option>
                     <option value="sunrise-boat">Sunrise Boat Tour</option>
                     <option value="ganga-aarti">Evening Ganga Aarti</option>
                     <option value="old-city">Old City Walking Tour</option>

@@ -16,12 +16,12 @@ const HeroSection = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             <span className="text-gradient-gold">Varanasi Spiritual Tour</span>
             <br />
-            <span className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground">Sunrise Boat Ride | Ganga Arti &amp; Temple Tours...</span>
+            <span className="text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground">Dev Diwali Boat Booking | Ganga Aarti, Laser Show | Sunrise Boat Ride</span>
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
             Welcome to Varanasi Spiritual Tour, your trusted local guide service for authentic spiritual
-            experiences in Varanasi. Join sunrise boat rides, Ganga Aarti tours, temple visits,
-            and cultural walks led by experienced local guides.
+            experiences in Varanasi. Book Dev Diwali boat with Ganga Aarti, Laser Show and Fire Show,
+            plus sunrise boat rides, temple visits, and cultural walks led by experienced local guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
