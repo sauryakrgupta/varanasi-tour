@@ -156,6 +156,7 @@ const ReviewsSection = () => {
               <label htmlFor="review-tour" className="block text-sm font-medium text-[#1F2937] mb-2">Which Tour Did You Experience?</label>
               <select id="review-tour" value={tour} onChange={(e) => setTour(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#D97706] focus:ring-2 focus:ring-[#D97706]/20 outline-none transition-all duration-300 bg-white">
                 <option value="">Select a tour</option>
+                <option value="Dev Diwali Boat Booking">Dev Diwali Boat Booking | Ganga Aarti, Laser</option>
                 <option value="Sunrise Boat Tour">Sunrise Boat Tour</option>
                 <option value="Evening Ganga Aarti">Evening Ganga Aarti</option>
                 <option value="Old City Walking Tour">Old City Walking Tour</option>

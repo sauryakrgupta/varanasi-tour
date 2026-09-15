@@ -14,7 +14,43 @@ import ayodhyaImg from "@/assets/ayodhya.jpg";
 import bodhgayaImg from "@/assets/bodhgaya.jpeg";
 import goldenImg from "@/assets/golden.webp";
 
-const tours = [
+type Tour = {
+  title: string;
+  emoji: string;
+  description: string;
+  image: string;
+  featured?: boolean;
+  subtitle?: string;
+  trustTitle?: string;
+  trustText?: string;
+  includesTitle?: string;
+  includes?: string[];
+};
+
+const tours: Tour[] = [
+  {
+    title: "Dev Diwali Boat Booking | Ganga Aarti, Laser",
+    emoji: "🎆",
+    subtitle: "Ganga Aarti + Laser Show + Fire Show",
+    description:
+      "Witness the spectacular Dev Diwali celebration from the Ganga — lakhs of diyas on 84 ghats, grand Ganga Aarti, mesmerising Laser Show, and thrilling Fire Show all from your boat.",
+    image: aartiImg,
+    featured: true,
+    trustTitle: "Varanasi's #1 Dev Diwali Boat Operator",
+    trustText:
+      "Visit Kashi has successfully completed 1500+ Dev Diwali boat bookings since 2017. 4.9 stars rated on Google. Trusted by thousands of families, corporates, and travel groups.",
+    includesTitle: "What's Included in Dev Diwali Boat Package",
+    includes: [
+      "Life Jackets for all passengers (mandatory safety)",
+      "Licensed & experienced boatman",
+      "Snacks Box & Mineral Water",
+      "Grand Welcome on boarding",
+      "Dev Diwali Ganga Aarti viewing from the river",
+      "Laser Show & Fire Show viewing",
+      "84-Ghat panoramic view (all ghats illuminated with diyas)",
+      "Hindi / English assistance on board",
+    ],
+  },
   {
     title: "Sunrise Boat Tour",
     emoji: "🌅",
@@ -109,30 +145,56 @@ const ToursSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group bg-background rounded-2xl overflow-hidden shadow-warm hover-lift"
+              transition={{ delay: Math.min(i * 0.08, 0.4) }}
+              className={`group bg-background rounded-2xl overflow-hidden shadow-warm hover-lift ${
+                tour.featured ? "md:col-span-2 lg:col-span-3" : ""
+              }`}
             >
-              <div className="relative h-52 overflow-hidden">
-                <img
-                  src={tour.image}
-                  alt={tour.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">
-                  {tour.emoji} {tour.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {tour.description}
-                </p>
-                <div className="flex items-center justify-end">
-                  <Link
-                    to="/booking"
-                    className="flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
-                  >
-                    Book Now <ArrowRight size={16} />
-                  </Link>
+              <div className={tour.featured ? "grid lg:grid-cols-2" : ""}>
+                <div className={`relative overflow-hidden ${tour.featured ? "h-64 lg:h-full min-h-[16rem]" : "h-52"}`}>
+                  <img
+                    src={tour.image}
+                    alt={tour.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className={`${tour.featured ? "text-2xl" : "text-xl"} font-bold mb-2`}>
+                    {tour.emoji} {tour.title}
+                  </h3>
+                  {tour.subtitle && (
+                    <p className="text-primary font-semibold mb-2">{tour.subtitle}</p>
+                  )}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {tour.description}
+                  </p>
+                  {tour.trustTitle && (
+                    <div className="rounded-xl bg-primary/5 border border-primary/15 p-4 mb-4">
+                      <p className="font-semibold text-sm mb-1">{tour.trustTitle}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{tour.trustText}</p>
+                    </div>
+                  )}
+                  {tour.includes && (
+                    <div className="mb-4">
+                      <p className="font-semibold text-sm mb-3">{tour.includesTitle}</p>
+                      <ul className="grid sm:grid-cols-2 gap-2">
+                        {tour.includes.map((item) => (
+                          <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <span className="text-primary mt-0.5">✓</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <div className="flex items-center justify-end">
+                    <Link
+                      to="/booking"
+                      className="flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
+                    >
+                      Book Now <ArrowRight size={16} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </motion.div>

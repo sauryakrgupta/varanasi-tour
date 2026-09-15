@@ -44,7 +44,8 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold text-lg mb-6">Popular Tours</h4>
             <ul className="space-y-3">
-              <li><a href="/tours/sunrise-boat-tour" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Sunrise Boat Tour</a></li>
+              <li><a href="/tours" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Dev Diwali Boat Booking</a></li>
+              <li><a href="/tours" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Sunrise Boat Tour</a></li>
               <li><a href="/tours/ganga-aarti-experience" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Evening Ganga Aarti</a></li>
               <li><a href="/tours/old-city-walking-tour" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Old City Walking Tour</a></li>
               <li><a href="/tours/spiritual-temple-tour" className="text-white/70 hover:text-[#F59E0B] transition-colors flex items-center gap-2"><i className="fa-solid fa-chevron-right text-xs text-[#D97706]"></i> Temple Tour</a></li>
